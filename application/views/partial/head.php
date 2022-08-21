@@ -14,6 +14,7 @@
 
 	<!-- Custom styles for this template-->
 	<link href="<?php echo base_url('assets/admin/') ?>css/sb-admin-2.min.css" rel="stylesheet">
+	<script src="<?php echo base_url('assets/admin/') ?>vendor/jquery/jquery.js"></script>
 	<link href="<?php echo base_url('assets/admin/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="<?php echo base_url('assets/img/logo_apotek.png') ?>" type="image/x-icon">
 	<?php $this->layout->get_css(); ?>
