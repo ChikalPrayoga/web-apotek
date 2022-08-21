@@ -20,9 +20,8 @@
 							<tr>
 								<th>No</th>
 								<th>Tanggal Pembelian</th>
-								<th>ID Pembelian</th>
-								<th>Jumlah</th>
-								<th>Harga</th>
+								<th>Admin</th>
+								<th>Pembelian</th>
 								<th>Opsi</th>
 							</tr>
 						</thead>
@@ -32,26 +31,24 @@
 								<tr>
 									<td><?php echo $no++; ?></td>
 									<td><span class="badge badge-dark"><?php echo $tr->tgl; ?></span></td>
-									<td><?php echo $tr->id; ?></td>
+									<td><?php echo $tr->admin; ?></td>
 									<td>
-										<?php foreach ($tr->obat as $o) : ?>
-											<a href="#" class="mb-2 btn btn-success btn-sm btn-icon-split">
-												<span class="icon text-white-50">
-													<?php echo $o->jumlah; ?>
-												</span>
-												<span class="text"><?php echo $o->nama_obat; ?></span>
-											</a><br>
-										<?php endforeach ?>
+										<?php
+										$total = 0;
+										foreach ($tr->obat as $o) :
+
+										?>
+											<span class="text "><?php echo $o->nama_obat; ?> ( <?php echo $o->jumlah; ?> ) = Rp. <?php echo number_format($o->jumlah * $o->harga_beli, 2, ',', '.'); ?></span>
+											<br>
+										<?php
+											$total += $o->jumlah * $o->harga_beli;
+										endforeach
+										?>
+										<hr>
+										Total = Rp. <?php echo number_format($total, 2, ',', '.'); ?>
 									</td>
 									<td>
-										<?php foreach ($tr->obat as $o) : ?>
-											<a href="#" class="mb-2 btn btn-primary btn-sm btn-icon-split">
-												<span class="text">Rp. <?php echo $o->harga_beli; ?></span>
-											</a><br>
-										<?php endforeach ?>
-									</td>
-									<td>
-										<a href="<?php echo site_url('pembelian/hapus/') . $tr->id; ?>" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-trash"></i></a>
+										<a href="<?php echo site_url('pembelian/hapus/') . $tr->id; ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
 							</tbody>

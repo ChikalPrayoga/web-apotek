@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Supplier extends MY_Controller {
+class Supplier extends MY_Controller
+{
 
     public function __construct()
     {
@@ -10,20 +11,17 @@ class Supplier extends MY_Controller {
     }
 
     public function index()
-	{
-	    //set rulues form
+    {
+        //set rulues form
         $this->form_validation->set_rules('nama', 'Nama Supplier', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('kota', 'Kota', 'required|trim');
         $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
-        if ($this->form_validation->run() == FALSE)
-        {
+        if ($this->form_validation->run() == FALSE) {
             $data['supplier'] = $this->Supplier_model->get_all();
             $this->layout->set_title('Data Supplier');
-		    $this->layout->load('template', 'supplier/index', $data);
-        }
-        else
-        {
+            $this->layout->load('template', 'supplier/index', $data);
+        } else {
             $data_supplier = [
                 'nama' => $this->input->post('nama'),
                 'alamat' => $this->input->post('alamat'),
@@ -36,11 +34,11 @@ class Supplier extends MY_Controller {
             redirect('supplier');
         }
     }
-    
+
     public function hapus($id = null)
     {
-        if (! $id) return show_404();
-        $this->db->delete('supplier', ['id' => $id]);
+        if (!$id) return show_404();
+        $this->db->update('supplier', ['flag_del' => "1"], ['id' => $id]);
         $this->session->set_flashdata('info', 'Berhasil dihapus');
         redirect('supplier');
     }
@@ -58,12 +56,9 @@ class Supplier extends MY_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('kota', 'Kota', 'required|trim');
         $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
-        if ($this->form_validation->run() == FALSE) 
-        {
+        if ($this->form_validation->run() == FALSE) {
             redirect('supplier');
-        } 
-        else
-        {
+        } else {
             $data_supplier = [
                 'nama' => $this->input->post('nama'),
                 'alamat' => $this->input->post('alamat'),

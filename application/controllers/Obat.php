@@ -22,7 +22,8 @@ class Obat extends MY_Controller
         $this->form_validation->set_rules('kode_obat', 'Kode Obat', 'required|trim|is_unique[obat.kode]');
         $this->form_validation->set_rules('supplier', 'Supplier', 'required|trim');
         $this->form_validation->set_rules('produsen', 'Produsen', 'required|trim');
-        $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga Jual', 'required|trim');
+        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|trim');
         $this->form_validation->set_rules('stok', 'Stok', 'required|trim|numeric');
         if ($this->form_validation->run() == FALSE) {
             $this->load->model('Supplier_model');
@@ -52,9 +53,11 @@ class Obat extends MY_Controller
             'nama_obat' => $this->input->post('nama'),
             'produsen' => $this->input->post('produsen'),
             'harga' => $this->input->post('harga'),
+            'harga_beli' => $this->input->post('harga_beli'),
             'stok' => $this->input->post('stok'),
             'foto' => $this->upload->data('file_name'),
         ];
+
         $tambah = $this->Obat_model->create($data_obat);
         $msg = $tambah ? 'Berhasil ditambah' : 'Gagal ditambah';
         $this->session->set_flashdata('info', $msg);
@@ -69,7 +72,7 @@ class Obat extends MY_Controller
         if (file_exists($path)) {
             unlink($path);
         }
-        $this->db->delete('obat', ['kode' => $kode]);
+        $this->db->update('obat', ['flag_del' => "1"], ['kode' => $kode]);
         $this->session->set_flashdata('info', 'Berhasil dihapus');
         redirect('obat');
     }
@@ -80,7 +83,8 @@ class Obat extends MY_Controller
         // $this->form_validation->set_rules('kode_obat', 'Kode Obat', 'required|trim|is_unique[obat.kode]');
         $this->form_validation->set_rules('supplier', 'Supplier', 'required|trim');
         $this->form_validation->set_rules('produsen', 'Produsen', 'required|trim');
-        $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga Jual', 'required|trim');
+        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|trim');
         $this->form_validation->set_rules('stok', 'Stok', 'required|trim|numeric');
         if ($this->form_validation->run() == FALSE) {
             $data['obat'] = $this->Obat_model->getByKode($kode);
@@ -99,6 +103,7 @@ class Obat extends MY_Controller
                 'nama_obat' => $this->input->post('nama'),
                 'produsen' => $this->input->post('produsen'),
                 'harga' => $this->input->post('harga'),
+                'harga_beli' => $this->input->post('harga_beli'),
                 'stok' => $this->input->post('stok'),
             ];
             if ($_FILES['foto']['error'] !== 4) {

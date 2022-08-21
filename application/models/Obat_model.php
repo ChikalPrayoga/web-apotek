@@ -1,11 +1,11 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Obat_model extends CI_Model
 {
-    public function get_all()       
+    public function get_all()
     {
-        $result = $this->db->get('obat');
+        $result = $this->db->get_where('obat', ['flag_del' => "0"]);
         return $result;
     }
 
@@ -25,5 +25,4 @@ class Obat_model extends CI_Model
         $this->db->update('obat', $data, ['kode' => $kode]);
         return $this->db->affected_rows() > 0 ? true : false;
     }
-    
 }

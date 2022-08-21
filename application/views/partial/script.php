@@ -139,7 +139,7 @@
         arrayObatBeli = [];
         $('.form-obat-beli table tbody').html('');
         $('.form-obat-beli #data_obat').val('');
-        countGrandTotal();
+        countGrandTotalBeli();
     })
     $('.form-obat-beli .add-item-obat').on('click', function(e) {
         let kode = $('.form-obat-beli #obat').val();
@@ -163,11 +163,11 @@
                 jumlah: 1,
                 total: data.harga_beli
             });
-            let grand_total = 0;
-            arrayObatBeli.forEach(val => grand_total = grand_total + parseInt(val.total));
+            let grand_total_beli = 0;
+            arrayObatBeli.forEach(val => grand_total_beli = grand_total_beli + parseInt(val.total));
             $('.form-obat-beli table tbody').append(html)
             $('.form-obat-beli table tfoot').show();
-            $('.form-obat-beli .grand-total').html(`<h4>Rp.${grand_total}</h4>`)
+            $('.form-obat-beli .grand-total').html(`<h4>Rp.${grand_total_beli}</h4>`)
             $('.form-obat-beli #data_obat').val(JSON.stringify(arrayObatBeli));
         })
     })
@@ -176,7 +176,7 @@
         let kode = $(this).data('kode');
         arrayObatBeli = arrayObatBeli.filter(e => e.kode != kode);
         $('.form-obat-beli #data_obat').val(JSON.stringify(arrayObatBeli));
-        countGrandTotal();
+        countGrandTotalBeli();
     })
     $('.form-obat-beli table').on('change', '.jumlah', function() {
         let kode = $(this).data('kode');
@@ -187,18 +187,18 @@
         objIndex = arrayObatBeli.findIndex((obj => obj.kode == kode));
         arrayObatBeli[objIndex].jumlah = jumlah;
         arrayObatBeli[objIndex].total = total;
-        countGrandTotal();
+        countGrandTotalBeli();
         $('.form-obat-beli #data_obat').val(JSON.stringify(arrayObatBeli));
     })
 
-    function countGrandTotal() {
-        let grand_total = 0;
-        arrayObatBeli.forEach(val => grand_total = grand_total + parseInt(val.total));
-        if (grand_total <= 0) {
+    function countGrandTotalBeli() {
+        let grand_total_beli = 0;
+        arrayObatBeli.forEach(val => grand_total_beli = grand_total_beli + parseInt(val.total));
+        if (grand_total_beli <= 0) {
             $('.form-obat-beli table tfoot').hide();
             $('.form-obat-beli table tbody .item-kosong').show();
         }
-        $('.form-obat-beli .grand-total').html(`<h4>Rp.${grand_total}</h4>`)
+        $('.form-obat-beli .grand-total').html(`<h4>Rp.${grand_total_beli}</h4>`)
     }
     $('.form-obat-beli').on('submit', function(e) {
         e.preventDefault();

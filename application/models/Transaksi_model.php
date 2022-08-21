@@ -13,7 +13,7 @@ class Transaksi_model extends CI_Model
 
     public function get_obat($transaksi_id)
     {
-        $this->db->select('b.kode, b.nama_obat, a.jumlah')
+        $this->db->select('b.kode, b.nama_obat, a.jumlah, b.harga')
             ->from('detail_transaksi a')
             ->join('obat b', 'a.kode_obat = b.kode')
             ->where('transaksi_id', $transaksi_id);

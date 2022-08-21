@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-	<!-- Page Heading -->
+    <!-- Page Heading -->
     <!-- <h1 class="h3 mb-4 text-gray-800">Tambah Data obat</h1> -->
     <div class="row">
         <div class="col-lg-8">
@@ -13,9 +13,9 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="foto_lama" value="<?php echo $obat->foto ?>">
                         <?php if ($this->session->flashdata('info')) : ?>
-                        <div class="alert alert-danger">
-                            <?php echo $this->session->flashdata('info'); ?>
-                        </div>
+                            <div class="alert alert-danger">
+                                <?php echo $this->session->flashdata('info'); ?>
+                            </div>
                         <?php endif; ?>
                         <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
                         <div class="form-group">
@@ -35,12 +35,16 @@
                             <input type="text" value="<?php echo set_value('produsen', $obat->produsen) ?>" name="produsen" id="produsen" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="harga">Harga</label>
-                            <input type="number"  value="<?php echo set_value('harga', $obat->harga) ?>" name="harga" id="harga" class="form-control">
+                            <label for="harga_beli">Harga Beli</label>
+                            <input type="number" value="<?php echo set_value('harga_beli', $obat->harga_beli) ?>" name="harga_beli" id="harga_beli" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="harga">Harga Jual</label>
+                            <input type="number" value="<?php echo set_value('harga', $obat->harga) ?>" name="harga" id="harga" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="stok">Jumlah stok</label>
-                            <input type="number"  value="<?php echo set_value('stok', $obat->stok) ?>" name="stok" id="stok" class="form-control">
+                            <input type="number" value="<?php echo set_value('stok', $obat->stok) ?>" name="stok" id="stok" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="foto">Foto obat</label>
@@ -52,12 +56,12 @@
             </div>
         </div>
         <div class="col-lg-4">
-        <div class="card shadow mb-4">
+            <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Foto</h6>
                 </div>
                 <div class="card-body">
-                <img src="<?php echo base_url('assets/img/') . $obat->foto; ?>" width="100%" class="img-thumbnail">
+                    <img src="<?php echo base_url('assets/img/') . $obat->foto; ?>" width="100%" class="img-thumbnail">
                 </div>
             </div>
         </div>
