@@ -25,9 +25,9 @@
 								<th>Opsi</th>
 							</tr>
 						</thead>
-						<?php $no = 1; ?>
-						<?php foreach ($pembelian as $tr) : ?>
-							<tbody>
+						<tbody>
+							<?php $no = 1; ?>
+							<?php foreach ($pembelian as $tr) : ?>
 								<tr>
 									<td><?php echo $no++; ?></td>
 									<td><span class="badge badge-dark"><?php echo $tr->tgl; ?></span></td>
@@ -51,8 +51,8 @@
 										<a href="<?php echo site_url('pembelian/hapus/') . $tr->id; ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
-							</tbody>
-						<?php endforeach ?>
+							<?php endforeach ?>
+						</tbody>
 					</table>
 				</div>
 			</div>

@@ -20,7 +20,7 @@
                     <table class="table table-bordered" id="dataTable">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>No</th>
                                 <th>Nama supplier</th>
                                 <th>Alamat</th>
                                 <th>Kota</th>
@@ -28,9 +28,9 @@
                                 <th>Opsi</th>
                             </tr>
                         </thead>
-                        <?php $no = 1; ?>
-                        <?php foreach ($supplier->result() as $o) : ?>
-                            <tbody>
+                        <tbody>
+                            <?php $no = 1; ?>
+                            <?php foreach ($supplier->result() as $o) : ?>
                                 <tr>
                                     <td><?php echo $no++; ?></td>
                                     <td><?php echo $o->nama; ?></td>
@@ -42,8 +42,8 @@
                                         <a href="" data-id="<?php echo $o->id; ?>" class="btn btn-primary btn-circle btn-sm btn-ubah-sup"><i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
-                            </tbody>
-                        <?php endforeach ?>
+                            <?php endforeach ?>
+                        </tbody>
                     </table>
                 </div>
             </div>

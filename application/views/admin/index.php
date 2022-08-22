@@ -20,15 +20,15 @@
 					<table class="table table-bordered" id="dataTable">
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>No</th>
 								<th>Nama admin</th>
 								<th>Username</th>
 								<th>Opsi</th>
 							</tr>
 						</thead>
-						<?php $no = 1; ?>
-						<?php foreach ($admin->result() as $o) : ?>
-							<tbody>
+						<tbody>
+							<?php $no = 1; ?>
+							<?php foreach ($admin->result() as $o) : ?>
 								<tr>
 									<td><?php echo $no++; ?></td>
 									<td><?php echo $o->nama; ?></td>
@@ -38,8 +38,8 @@
 										<a href="" data-id="<?php echo $o->id; ?>" class="btn btn-primary btn-circle btn-sm btn-ubah-adm"><i class="fa fa-edit"></i></a>
 									</td>
 								</tr>
-							</tbody>
-						<?php endforeach ?>
+							<?php endforeach ?>
+						</tbody>
 					</table>
 				</div>
 			</div>

@@ -18,7 +18,7 @@
 					<table class="table table-bordered" id="dataTable">
 						<thead>
 							<tr>
-								<th>#</th>
+								<th>No</th>
 								<th>Tanggal Transaksi</th>
 								<th>Admin</th>
 								<th>Nama Pembeli</th>
@@ -26,9 +26,9 @@
 								<th>Opsi</th>
 							</tr>
 						</thead>
-						<?php $no = 1; ?>
-						<?php foreach ($transaksi as $tr) : ?>
-							<tbody>
+						<tbody>
+							<?php $no = 1; ?>
+							<?php foreach ($transaksi as $tr) : ?>
 								<tr>
 									<td><?php echo $no++; ?></td>
 									<td><span class="badge badge-dark"><?php echo $tr->tgl; ?></span></td>
@@ -53,8 +53,8 @@
 										<a href="<?php echo site_url('transaksi/hapus/') . $tr->id; ?>" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-trash"></i></a>
 									</td>
 								</tr>
-							</tbody>
-						<?php endforeach ?>
+							<?php endforeach ?>
+						</tbody>
 					</table>
 				</div>
 			</div>

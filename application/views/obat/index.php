@@ -27,9 +27,10 @@
 							<th>Opsi</th>
 						</tr>
 					</thead>
-					<?php $no = 1; ?>
-					<?php foreach ($obat->result() as $o) : ?>
-						<tbody>
+					<tbody>
+						<?php $no = 1; ?>
+						<?php foreach ($obat->result() as $o) : ?>
+
 							<tr>
 								<td><?php echo $no++; ?></td>
 								<td><?php echo $o->nama_obat; ?></td>
@@ -43,8 +44,9 @@
 									<a href="<?php echo site_url('obat/ubah/') . $o->kode; ?>" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-edit"></i></a>
 								</td>
 							</tr>
-						</tbody>
-					<?php endforeach ?>
+
+						<?php endforeach ?>
+					</tbody>
 				</table>
 			</div>
 		</div>
