@@ -9,12 +9,12 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah obat  
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah obat
 							</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo($count['obat']); ?></div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo ($count['obat']); ?></div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							<i class="fas fa-medkit fa-2x text-red-300"></i>
 						</div>
 					</div>
 				</div>
@@ -25,12 +25,12 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Jumlah admin  
+							<div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Jumlah transaksi
 							</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo($count['admin']); ?></div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo ($count['transaksi']); ?></div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							<i class="fas fa-cart-plus fa-2x text-red-300"></i>
 						</div>
 					</div>
 				</div>
@@ -41,12 +41,12 @@
 				<div class="card-body">
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
-							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah supplier  
+							<div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah supplier
 							</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo($count['supplier']); ?></div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo ($count['supplier']); ?></div>
 						</div>
 						<div class="col-auto">
-							<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							<i class="fas fa-truck fa-2x text-red-300"></i>
 						</div>
 					</div>
 				</div>
