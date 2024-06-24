@@ -42,6 +42,45 @@
                                         <a href="" data-id="<?php echo $o->id; ?>" class="btn btn-primary btn-circle btn-sm btn-ubah-sup"><i class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
+                                <div class="modal fade" id="ubahModal<?php echo $o->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Ubah supplier</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <form action="<?php echo site_url('supplier/ubah') ?>" method="post">
+                                                <div class="modal-body">
+                                                    <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+                                                    <input type="hidden" name="id" id="id" value="<?php echo $o->id; ?>">
+                                                    <div class="form-group">
+                                                        <label for="nama">Nama supplier</label>
+                                                        <input type="text" name="nama" id="nama" class="form-control" value="<?php echo $o->nama; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="alamat">Alamat</label>
+                                                        <textarea name="alamat" id="alamat" value="<?php echo $o->alamat; ?>" class="form-control">
+                                                        <?php echo $o->alamat; ?></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="kota">Kota</label>
+                                                        <input type="text" name="kota" id="kota" class="form-control" value="<?php echo $o->kota; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="telp">Telpon</label>
+                                                        <input type="text" name="telp" id="telp" class="form-control" value="<?php echo $o->telp; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                    <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             <?php endforeach ?>
                         </tbody>
                     </table>
@@ -67,44 +106,6 @@
                     <div class="form-group">
                         <label for="nama-supplier">Nama supplier</label>
                         <input type="text" name="nama" id="nama-supplier" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="kota">Kota</label>
-                        <input type="text" name="kota" id="kota" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="telp">Telpon</label>
-                        <input type="text" name="telp" id="telp" class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="ubahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ubah supplier</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <form action="<?php echo site_url('supplier/ubah') ?>" method="post">
-                <div class="modal-body">
-                    <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
-                    <input type="hidden" name="id" id="id">
-                    <div class="form-group">
-                        <label for="nama">Nama supplier</label>
-                        <input type="text" name="nama" id="nama" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>

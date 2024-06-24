@@ -65,7 +65,7 @@ class Admin extends MY_Controller {
                 'username' => $this->input->post('username'),
             ];
             $password = $this->input->post('password');
-            if ($password) $data_admin['pasword'] = password_hash($password, PASSWORD_DEFAULT);
+            if ($password) $data_admin['password'] = password_hash($password, PASSWORD_DEFAULT);
             $id = $this->input->post('id');
             $ubah = $this->Admin_model->update($data_admin, $id);
             $msg = $ubah ? 'Berhasil diubah' : 'Gagal diubah';
